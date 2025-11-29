@@ -1,0 +1,363 @@
+/* 1. IMPORTAÇÕES */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+
+/* 2. PALETA DE CORES DARK MODE */
+:root {
+    --primary: #8e7bf9;       /* Roxo mais claro para brilhar no escuro */
+    --primary-dark: #6c5ce7;  /* Roxo original para hover */
+    --secondary: #6c5ce7;     /* Roxo base */
+    --accent: #00cec9;        /* Verde água */
+    
+    /* Fundos Escuros */
+    --bg-body: #0f111a;       /* Fundo da página (quase preto, levemente azulado) */
+    --bg-card: #1b1e2b;       /* Fundo dos cartões (cinza escuro) */
+    --bg-input: #12141d;      /* Fundo dos inputs */
+    
+    /* Textos */
+    --text-main: #e2e8f0;     /* Texto principal (branco gelo) */
+    --text-light: #94a3b8;    /* Texto secundário (cinza azulado) */
+    
+    /* Bordas e Sombras */
+    --border: #2d3246;        /* Cor das bordas sutis */
+    --shadow-sm: 0 4px 6px rgba(0,0,0,0.3);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.5); /* Sombra mais forte p/ profundidade */
+    --shadow-glow: 0 0 15px rgba(142, 123, 249, 0.4); /* Efeito neon no botão */
+    
+    --radius: 14px;           /* Bordas mais arredondadas */
+}
+
+/* 3. RESET E BASE */
+* { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
+
+/* Scrollbar Bonita (Estilo Dark) */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-body); }
+::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .logo {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-main);
+}
+
+a { text-decoration: none; transition: 0.3s; }
+
+/* 4. LAYOUT PRINCIPAL */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+/* 5. CABEÇALHO (HEADER) */
+header {
+    background: var(--bg-card); /* Fundo escuro */
+    padding: 15px 0;
+    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 0 10px rgba(142, 123, 249, 0.2); /* Leve brilho no logo */
+}
+
+header nav a {
+    color: var(--text-light);
+    margin-left: 20px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+header nav a:hover { color: var(--primary); text-shadow: 0 0 8px rgba(142, 123, 249, 0.4); }
+
+/* 6. BOTÕES (Com efeito Glow) */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--primary);
+    color: #fff; /* Texto branco forçado */
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-glow); /* Brilho roxo */
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(142, 123, 249, 0.6); /* Brilho mais forte */
+}
+
+.btn-danger {
+    background: #ff5e57;
+    box-shadow: 0 0 10px rgba(255, 94, 87, 0.3);
+}
+.btn-danger:hover { background: #ff3b30; box-shadow: 0 0 15px rgba(255, 59, 48, 0.5); }
+
+.action-btn { padding: 8px 12px; font-size: 0.85rem; margin-right: 5px; box-shadow: none; }
+
+/* 7. FORMULÁRIOS (Inputs Dark) */
+input, select, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0 20px 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-input); /* Fundo escuro */
+    color: var(--text-main);     /* Texto claro */
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus, textarea:focus { 
+    border-color: var(--primary); 
+    box-shadow: 0 0 0 3px rgba(142, 123, 249, 0.2); 
+}
+
+/* Placeholder precisa ser legível */
+::placeholder { color: #555c6b; }
+
+label { font-weight: 600; font-size: 0.9rem; margin-bottom: 5px; display: block; color: var(--text-light); }
+
+/* 8. HOME & VAGAS */
+/* Gradiente Roxo Moderno */
+.hero-section, div[style*="background: #007bff"] {
+    background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%) !important;
+    padding: 60px 20px !important;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    color: white !important;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cartões */
+.card, .vaga-card, .sidebar .card {
+    background: var(--bg-card); /* Cinza escuro */
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.vaga-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary); /* Borda roxa ao passar o mouse */
+}
+
+.vaga-img { width: 80px; height: 80px; border-radius: 12px; object-fit: cover; }
+
+/* Badges */
+.badge { 
+    background: #2d3246; 
+    color: var(--text-light); 
+    padding: 5px 12px; 
+    border-radius: 6px; 
+    font-size: 0.8rem; 
+    font-weight: 600; 
+    margin-right: 5px; 
+    display: inline-block; 
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* 9. ADMIN: MENU */
+.admin-menu {
+    background: linear-gradient(to right, #1e202b, #262938); /* Gradiente dark sutil */
+    border: 1px solid var(--border);
+    padding: 20px 30px;
+    border-radius: var(--radius);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    color: var(--text-main);
+}
+
+.admin-menu span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-right: 30px;
+    opacity: 0.9;
+    border-right: 1px solid var(--border);
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-menu a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-right: 15px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-menu a:hover {
+    background: rgba(142, 123, 249, 0.1);
+    color: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* 10. ADMIN: DASHBOARD CARDS */
+.dashboard-cards { display: flex; gap: 20px; }
+.dashboard-cards .card { 
+    border-left: none !important; 
+    border-top: 4px solid var(--primary); 
+    text-align: center; 
+    flex: 1; 
+    background: var(--bg-card);
+}
+.dashboard-cards .numero { font-size: 3rem; font-weight: 700; color: var(--text-main); margin: 10px 0; }
+.card-icon-container i { font-size: 3rem; opacity: 0.8; }
+
+/* Cores Ícones (Mais vibrantes para o dark mode) */
+.icon-users { color: #54a0ff; filter: drop-shadow(0 0 5px rgba(84, 160, 255, 0.4)); }
+.icon-vagas { color: #1dd1a1; filter: drop-shadow(0 0 5px rgba(29, 209, 161, 0.4)); }
+.icon-off { color: #8395a7; }
+.icon-cand { color: #feca57; filter: drop-shadow(0 0 5px rgba(254, 202, 87, 0.4)); }
+
+/* 11. TABELAS (Dark) */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border);
+    margin-top: 20px;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+th { 
+    background: #222533; /* Header da tabela mais escuro */
+    padding: 15px; 
+    text-align: left; 
+    font-weight: 600; 
+    color: var(--text-light); 
+    border-bottom: 1px solid var(--border); 
+}
+td { 
+    padding: 15px; 
+    border-bottom: 1px solid var(--border); 
+    vertical-align: middle; 
+    color: var(--text-main);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,0.02); } /* Leve destaque ao passar mouse na linha */
+
+/* 12. ALERTAS */
+.alerta { padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: 500; display: flex; align-items: center; gap: 10px; }
+.sucesso { background: rgba(29, 209, 161, 0.1); color: #1dd1a1; border: 1px solid rgba(29, 209, 161, 0.2); }
+.erro { background: rgba(255, 107, 107, 0.1); color: #ff6b6b; border: 1px solid rgba(255, 107, 107, 0.2); }
+
+/* Ajuste do box de busca (Filtros) */
+.search-box input, .search-box select { background: var(--bg-body); border-color: var(--border); }
+
+/* Badge de Sucesso (Para o Salário) */
+.badge-success {
+    background: rgba(29, 209, 161, 0.1); /* Fundo verde transparente */
+    color: #1dd1a1; /* Texto verde neon */
+    border: 1px solid rgba(29, 209, 161, 0.2);
+}
+
+
+/* --- EFEITOS DE GLOW (NEON) --- */
+
+/* 1. Salário Verde Brilhante */
+.text-glow-green {
+    color: #1dd1a1 !important;
+    text-shadow: 0 0 12px rgba(29, 209, 161, 0.6); /* O brilho verde */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* 2. Botões do Menu Admin (Cores Específicas) */
+
+/* Botão Dashboard (Azul Neon) */
+.btn-menu-dash {
+    color: #54a0ff !important;
+    background: rgba(84, 160, 255, 0.1) !important;
+    border: 1px solid rgba(84, 160, 255, 0.3) !important;
+    box-shadow: 0 0 10px rgba(84, 160, 255, 0.2);
+}
+.btn-menu-dash:hover {
+    background: rgba(84, 160, 255, 0.2) !important;
+    box-shadow: 0 0 20px rgba(84, 160, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Botão Categorias (Rosa/Roxo Neon) */
+.btn-menu-cat {
+    color: #ff9ff3 !important;
+    background: rgba(255, 159, 243, 0.1) !important;
+    border: 1px solid rgba(255, 159, 243, 0.3) !important;
+    box-shadow: 0 0 10px rgba(255, 159, 243, 0.2);
+}
+.btn-menu-cat:hover {
+    background: rgba(255, 159, 243, 0.2) !important;
+    box-shadow: 0 0 20px rgba(255, 159, 243, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Botão Vagas (Verde Água Neon) */
+.btn-menu-vagas {
+    color: #00cec9 !important;
+    background: rgba(0, 206, 201, 0.1) !important;
+    border: 1px solid rgba(0, 206, 201, 0.3) !important;
+    box-shadow: 0 0 10px rgba(0, 206, 201, 0.2);
+}
+.btn-menu-vagas:hover {
+    background: rgba(0, 206, 201, 0.2) !important;
+    box-shadow: 0 0 20px rgba(0, 206, 201, 0.5);
+    transform: translateY(-2px);
+}
