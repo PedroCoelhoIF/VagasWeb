@@ -1,7 +1,9 @@
 # 💼 VagasWeb - Sistema de Gerenciamento de Vagas
 
-Sistema web desenvolvido em **PHP Nativo** e **MySQL** para a disciplina de **WEB II**. A aplicação permite o gerenciamento completo de ofertas de emprego, candidaturas e usuários, com uma interface moderna em **Dark Mode**.
+Sistema web desenvolvido em **PHP Nativo** e **MySQL** para a disciplina de **WEB II**. A aplicação permite o gerenciamento completo de ofertas de emprego, candidaturas e usuários, com uma interface moderna.
+
 ![Imagem Da pagina inicial](https://github.com/PedroCoelhoIF/VagasWeb/blob/main/demo/img/ImagemDemo.png?raw=true)
+
 ---
 
 ## 🚀 Funcionalidades
